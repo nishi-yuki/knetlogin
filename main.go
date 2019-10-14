@@ -1,7 +1,7 @@
 package main
 
-import "github.com/nishi-yuki/knetlogin/knet"
+import "github.com/nishi-yuki/knetlogin/cmd"
 
 func main() {
-	knet.Login("your id", "your pass")
+	cmd.Execute()
 }

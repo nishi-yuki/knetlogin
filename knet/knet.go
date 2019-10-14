@@ -30,7 +30,7 @@ func IsInternetAvailable() bool {
 	return false
 }
 
-func Login(uid string, pass string)  {
+func Login(uid string, pass string) error {
 	var (
 		res *http.Response
 		doc *goquery.Document
@@ -39,7 +39,7 @@ func Login(uid string, pass string)  {
 
 	jar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	client := &http.Client{
@@ -48,7 +48,7 @@ func Login(uid string, pass string)  {
 
 	res, err = client.Get("https://netauth.cis.kit.ac.jp/auth/login.php")
 	if err != nil {
-		log.Fatal(NetworkError)
+		return err
 	}
 
 	postUrl := res.Request.URL.String()
@@ -60,7 +60,7 @@ func Login(uid string, pass string)  {
 	payload.Add("_eventId_proceed", "")
 	res, err = client.PostForm(postUrl, payload)
 	if err != nil {
-		log.Fatal(NetworkError)
+		return err
 	}
 
 	/* SAMLの解析 */
@@ -72,7 +72,7 @@ func Login(uid string, pass string)  {
 	/* SAML -> login.php uid pwd */
 	res, err = client.PostForm(postUrl, payload)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	doc, _ = goquery.NewDocumentFromResponse(res)
@@ -83,11 +83,12 @@ func Login(uid string, pass string)  {
 
 	res, err = client.PostForm(postUrl, payload)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	doc, _ = goquery.NewDocumentFromResponse(res)
 	//log.Println(doc.Text())
+	return nil
 }
 
 func formParser(form *goquery.Selection) (string, url.Values, bool) { //エラーの返し方がわからんのでこうした．直しといて．
