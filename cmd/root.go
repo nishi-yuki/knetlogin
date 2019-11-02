@@ -20,19 +20,15 @@ var rootCmd = &cobra.Command{
 	Use:   "learn-cobra",
 	Short: "A brief description of your application",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		var err error
 		id = viper.GetString("id")
 		pass = viper.GetString("pass")
-		if !knet.IsInternetAvailable() {
-			fmt.Println("network unavailable. start login process.")
-			err = knet.Login(id, pass)
-			if !knet.IsInternetAvailable() {
-				fmt.Println("login failed.")
-			} else {
-				fmt.Println("login succeeded.")
-			}
+
+		fmt.Println("start login process.")
+		err := knet.Login(id, pass)
+		if err == nil {
+			fmt.Println("login succeeded.")
 		} else {
-			fmt.Println("network available")
+			fmt.Println("login failed.")
 		}
 		return err
 	},
