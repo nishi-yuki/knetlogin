@@ -9,14 +9,13 @@ before_install:
 
 install:
   - go build -o knetlogin
-  - go install
 
 script:
-  - ls -lh
+  - ls -lh knetlogin
 
 before_deploy:
   - go build -ldflags="-s" -o knetlogin
-  - ls -lh
+  - ls -lh knetlogin
 
 deploy:
   provider: releases
