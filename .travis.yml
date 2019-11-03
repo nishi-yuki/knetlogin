@@ -12,11 +12,11 @@ install:
   - go install
 
 script:
-  - ls -lh knetlogin
+  - ls -lh
 
 before_deploy:
   - go build -ldflags="-s" -o knetlogin
-  - ls -lh knetlogin
+  - ls -lh
 
 deploy:
   provider: releases
