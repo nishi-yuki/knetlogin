@@ -4,10 +4,15 @@
 k**netの自動ログインツール
 
 ## インストール
-goの開発環境がある場合
+#### goの開発環境がある場合
 ```shell
 go get github.com/Ni5h1/knetlogin
 ```
+
+#### バイナリをreleasesからダウンロード
+
+<https://github.com/Ni5h1/knetlogin/releases>
+にある "knetlogin" と書かれたリンクからLinux用実行ファイルをダウンロードできます。
 
 ## 使い方
 
