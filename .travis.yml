@@ -8,14 +8,14 @@ before_install:
   - go mod download
 
 install:
-  - go build
+  - go build -o knetlogin
   - go install
 
 script:
   - ls -lh knetlogin
 
 before_deploy:
-  - go build -ldflags="-s"
+  - go build -ldflags="-s" -o knetlogin
   - ls -lh knetlogin
 
 deploy:
