@@ -1,7 +1,6 @@
 language: go
 
 go:
-  - 1.11.x
   - 1.13.x
 
 before_install:
@@ -12,6 +11,8 @@ install:
 
 script:
   - ls -lh knetlogin
+  - go vet . ./cmd ./knet
+  - golint . ./cmd ./knet
 
 before_deploy:
   - go build -ldflags="-s" -o knetlogin
