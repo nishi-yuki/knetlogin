@@ -19,6 +19,7 @@ var (
 var rootCmd = &cobra.Command{
 	Use:   "knetlogin",
 	Short: "K**net auto login tool",
+	Version: "alpha 0.9",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		id = viper.GetString("id")
 		pass = viper.GetString("pass")
