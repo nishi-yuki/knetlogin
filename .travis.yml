@@ -1,0 +1,26 @@
+language: go
+
+before_install:
+  - go mod download
+
+install:
+  - go build
+  - go install
+
+script:
+  - ls -lh knetlogin
+
+before_deploy:
+  - go build -ldflags="-s"
+  - ls -lh knetlogin
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: "knetlogin"
+  cleanup: false
+  on:
+    tags: true
+
+env:
+  - GO111MODULE=on
