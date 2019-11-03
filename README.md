@@ -1,6 +1,12 @@
 # knetlogin
 k**netの自動ログインツール
 
+## インストール
+goの開発環境がある場合
+```shell
+go get github.com/Ni5h1/knetlogin
+```
+
 ## 使い方
 
 k**netに接続した状態で、
