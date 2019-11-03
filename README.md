@@ -1,4 +1,6 @@
 # knetlogin
+[![Build Status](https://travis-ci.org/Ni5h1/knetlogin.svg?branch=master)](https://travis-ci.org/Ni5h1/knetlogin)
+
 k**netの自動ログインツール
 
 ## インストール
