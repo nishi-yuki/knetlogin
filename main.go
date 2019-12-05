@@ -1,6 +1,6 @@
 package main
 
-import "github.com/Ni5h1/knetlogin/cmd"
+import "github.com/nishi-yuki/knetlogin/cmd"
 
 func main() {
 	cmd.Execute()

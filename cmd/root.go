@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Ni5h1/knetlogin/knet"
+	"github.com/nishi-yuki/knetlogin/knet"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
