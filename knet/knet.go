@@ -19,9 +19,9 @@ func IsInternetAvailable() bool {
 		return false
 	}
 	defer res.Body.Close()
-	body, error := ioutil.ReadAll(res.Body)
-	if error != nil {
-		log.Fatal(error)
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		log.Fatal(err)
 	}
 	result := string(body)
 	if strings.Contains(result, "success") {
