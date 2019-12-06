@@ -1,17 +1,17 @@
 # knetlogin
-[![Build Status](https://travis-ci.org/Ni5h1/knetlogin.svg?branch=master)](https://travis-ci.org/Ni5h1/knetlogin)
+[![Build Status](https://travis-ci.org/nishi-yuki/knetlogin.svg?branch=master)](https://travis-ci.org/nishi-yuki/knetlogin)
 
 k**netの自動ログインツール
 
 ## インストール
 #### goの開発環境がある場合
 ```shell
-go get github.com/Ni5h1/knetlogin
+go get github.com/nishi-yuki/knetlogin
 ```
 
 #### バイナリをreleasesからダウンロード
 
-<https://github.com/Ni5h1/knetlogin/releases>
+<https://github.com/nishi-yuki/knetlogin/releases>
 にある "knetlogin" と書かれたリンクからLinux用実行ファイルをダウンロードできます。
 
 ## 使い方
