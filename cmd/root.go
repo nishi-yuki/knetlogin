@@ -45,7 +45,7 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.knetlogin.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.config/knetlogin.yaml)")
 	rootCmd.PersistentFlags().StringP("id", "i", "", "your user id")
 	rootCmd.PersistentFlags().StringP("pass", "p", "", "your password")
 	viper.BindPFlag("id", rootCmd.PersistentFlags().Lookup("id"))
