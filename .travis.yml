@@ -15,17 +15,5 @@ script:
   - go vet . ./cmd ./knet
   - golint . ./cmd ./knet
 
-before_deploy:
-  - go build -ldflags="-s" -o knetlogin
-  - ls -lh knetlogin
-
-deploy:
-  provider: releases
-  api_key: $GITHUB_TOKEN
-  file: "knetlogin"
-  skip_cleanup: true
-  on:
-    tags: true
-
 env:
   - GO111MODULE=on
