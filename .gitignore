@@ -12,5 +12,8 @@
 *.out
 knetlogin
 
+# Output of goreleaser
+dist/
+
 # Ide files
 .idea/
