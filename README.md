@@ -12,7 +12,7 @@ go get github.com/nishi-yuki/knetlogin
 #### バイナリをreleasesからダウンロード
 
 <https://github.com/nishi-yuki/knetlogin/releases>
-にある "knetlogin" と書かれたリンクからLinux用実行ファイルをダウンロードできます。
+にあるリンクから実行ファイルが入った圧縮ファイルをダウンロードできます。
 
 ## 使い方
 
