@@ -78,7 +78,10 @@ func Login(uid string, pass string) error {
 
 	/* SAMLの解析 */
 	doc, _ = goquery.NewDocumentFromResponse(res)
-	postURL, payload, _ = formParser(doc.Find("form"))
+	postURL, payload, err = formParser(doc.Find("form"))
+	if err != nil {
+		return err
+	}
 	//log.Println(doc.Text())
 	//log.Println(postURL)
 
@@ -89,7 +92,10 @@ func Login(uid string, pass string) error {
 	}
 
 	doc, _ = goquery.NewDocumentFromResponse(res)
-	postURL, payload, _ = formParser(doc.Find("form"))
+	postURL, payload, err = formParser(doc.Find("form"))
+	if err != nil {
+		return err
+	}
 	//log.Println(doc.Text())
 	//log.Println(postURL)
 	//log.Println(payload)
@@ -104,10 +110,18 @@ func Login(uid string, pass string) error {
 	return nil
 }
 
-func formParser(form *goquery.Selection) (string, url.Values, bool) { //エラーの返し方がわからんのでこうした．直しといて．
+type FormParseError struct {
+	Message string
+}
+
+func (e *FormParseError) Error() string {
+	return e.Message
+}
+
+func formParser(form *goquery.Selection) (string, url.Values, error) {
 	postURL, e := form.Attr("action")
 	if !e {
-		return "", nil, true
+		return "", nil, &FormParseError{"action Attribute not found"}
 	}
 	data := url.Values{}
 	form.Find("input").Each(func(_ int, input *goquery.Selection) {
@@ -118,5 +132,5 @@ func formParser(form *goquery.Selection) (string, url.Values, bool) { //エラ�
 		}
 		data.Add(name, value)
 	})
-	return postURL, data, false
+	return postURL, data, nil
 }
